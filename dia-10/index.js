@@ -60,20 +60,38 @@ function traductor(texto) {
   if (/[A-Z0-9]/.test(texto)) {
     const textoArray = texto.split("");
     textoArray.forEach((letra) => {
-      if (letra !== " ") {
-        traduccion += diccionarioMorse[letra] + " ";
-      } else {
+      if (letra === " ") {
         traduccion = traduccion.trimEnd();
         traduccion += diccionarioMorse[letra];
+      } else if (diccionarioMorse[letra]) {
+        traduccion += diccionarioMorse[letra] + " ";
       }
     });
   } else {
     const textoArray = texto.replaceAll("  ", " / ").split(" ");
-    console.log(textoArray.join(""));
-    textoArray.forEach((letra) => {});
+    textoArray.forEach((letra) => {
+      for (let propiedad in diccionarioMorse) {
+        if (diccionarioMorse[propiedad] === letra) {
+          traduccion += propiedad;
+        }
+      }
+      if (letra === "/") {
+        traduccion += " ";
+      }
+    });
   }
   console.log(traduccion.trimEnd());
 }
 
-traductor("hola que tal");
-traductor(".... --- .-.. .-  --.- ..- .  - .- .-..");
+traductor(
+  `Te dije sobre el amor, solo escuchaste seduccion
+   Te mostre lo hermoso, lo hiciste tu unica obsesion
+   Solo queria darle sentido a sus vidas
+   A pesar de tus presagios, por ti desobedeci
+   En castigo
+   Me llaman 
+   Satan`
+);
+traductor(
+  "- .  -.. .. .--- .  ... --- -... .-. .  . .-..  .- -- --- .-. --..--  ... --- .-.. ---  . ... -.-. ..- -.-. .... .- ... - .  ... . -.. ..- -.-. -.-. .. --- -.  - .  -- --- ... - .-. .  .-.. ---  .... . .-. -- --- ... --- --..--  .-.. ---  .... .. -.-. .. ... - .  - ..-  ..- -. .. -.-. .-  --- -... ... . ... .. --- -.  ... --- .-.. ---  --.- ..- . .-. .. .-  -.. .- .-. .-.. .  ... . -. - .. -.. ---  .-  ... ..- ...  ...- .. -.. .- ...  .-  .--. . ... .- .-.  -.. .  - ..- ...  .--. .-. . ... .- --. .. --- ... --..--  .--. --- .-.  - ..  -.. . ... --- -... . -.. . -.-. ..  . -.  -.-. .- ... - .. --. ---  -- .  .-.. .-.. .- -- .- -.  ... .- - .- -."
+);
