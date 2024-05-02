@@ -1,5 +1,5 @@
 function esPalidromo(texto){
-    texto = texto.replaceAll(/[ -,-.]/g, "").toLowerCase();
+    texto = texto.replace(/[ -,-.]/g, "").toLowerCase();
     texto = texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
     let index = texto.length
     for(caracter in texto){
