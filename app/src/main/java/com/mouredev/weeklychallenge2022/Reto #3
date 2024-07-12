@@ -1,0 +1,33 @@
+public class esPrimo {
+
+    // Método recursivo para resolver las Torres de Hanoi
+
+    public static void main(String[] args) {
+        int n = 20; // Límite superior hasta el cual se buscarán los números primos
+        boolean primo = true; // Variable para determinar si un número es primo
+        int suma = 0;
+        // Ciclo principal para iterar sobre cada número hasta n
+        for (int i = 2; i <= n; i++) {
+            primo = true; // Se reinicia primo a true para cada número i
+    
+            // Verificar si i es primo
+            if (i <= 1) {
+                primo = false; // Si i es menor o igual a 1, no es primo
+            } else {
+                // Ciclo interno para verificar si i es divisible por algún número j
+                for (int j = 2; j <= Math.sqrt(i); j++) {
+                    if (i % j == 0) {
+                        primo = false; // Si i es divisible por algún número j, entonces no es primo
+                        break; // Salir del ciclo interno
+                    }
+                }
+            }
+    
+            // Si primo es true, imprimir i que es primo
+            if (primo) {
+                suma += i;
+                System.out.println(suma);
+            }
+        }
+    }
+}    
