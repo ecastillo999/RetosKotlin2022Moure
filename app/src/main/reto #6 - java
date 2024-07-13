@@ -1,0 +1,10 @@
+public class reto_9 {
+
+    public static void main(String[] args) {
+        String palabra = "hola mundo";
+        StringBuilder reversa = new StringBuilder(palabra);
+        reversa.reverse();
+        System.out.println("La palabra inversa  es: " + reversa.toString());
+    }
+
+}
