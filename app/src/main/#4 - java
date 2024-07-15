@@ -1,0 +1,64 @@
+
+
+public abstract class poligono {
+    abstract double area();
+}
+
+class Cuadrado extends poligono {
+    private long lado;
+
+    public Cuadrado(long lado) {
+        this.lado = lado;
+    }
+
+    @Override
+    public double area() {
+        return lado * lado; 
+    }
+}
+
+class Triangulo extends poligono {
+    private long base;
+    private long altura;
+
+    public Triangulo(long base, long altura) {
+        this.base = base;
+        this.altura = altura;
+    }
+
+    @Override
+    public double area() {
+        return (base * altura) / 2.0; 
+    }
+}
+
+class Rectangulo extends poligono {
+    private long ancho;
+    private long largo;
+
+    public Rectangulo(long ancho, long largo) {
+        this.ancho = ancho;
+        this.largo = largo;
+    }
+
+    @Override
+    public double area() {
+        return largo * ancho;
+    }
+}
+
+class Principal {
+    public static void main(String[] args) {
+        Rectangulo rectangulo = new Rectangulo(20, 30);
+        Triangulo triangulo = new Triangulo(20, 30);
+        Cuadrado cuadrado = new Cuadrado(20);
+
+        System.out.println("El área de un cuadrado es: " + calcular(cuadrado));
+        System.out.println("El área de un triángulo es: " + calcular(triangulo));
+        System.out.println("El área de un rectángulo es: " + calcular(rectangulo));
+    }
+
+    public static double calcular(poligono poli) {
+        return poli.area();
+    }
+}
