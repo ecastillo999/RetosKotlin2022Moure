@@ -1,0 +1,24 @@
+
+public class reto_10 {
+
+    public static void main(String[] args) {
+
+        String palabra = "hola";
+        
+        mayuscula(palabra);
+
+}
+
+public static void mayuscula(String palabra){
+
+        if (palabra == null || palabra.isEmpty()) {
+            System.out.println("");
+        }
+    
+        char[] arr = palabra.toCharArray();
+        arr[0] = Character.toUpperCase(arr[0]);
+
+        System.out.println( new String(arr));
+
+}
+}
