@@ -1,0 +1,22 @@
+  public class decimalAbinario {
+    
+    public static void main(String[] args) {
+        int num = 23519 ;
+        List<Integer> resultado = new ArrayList<>();
+        int resul;
+
+           
+
+        while (num > 0) {
+            resul  = num % 2 ;
+            num /= 2;
+            resultado.add(0,resul);
+        }
+            
+            
+        
+        
+        System.out.println(resultado);
+    }
+   
+}
