@@ -1,0 +1,39 @@
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.math.BigInteger;
+import java.net.URL;
+
+public class CalcularaspecTRatioImagen {
+    public static void main(String[] args) {
+
+        String imageUrl = "https://raw.githubusercontent.com/mouredev/mouredev/master/mouredev_github_profile.png";
+
+        try {
+            BufferedImage image = ImageIO.read(new URL(imageUrl));
+
+            if (image != null) {
+                int width = image.getWidth();
+                int height = image.getHeight();
+                
+                resultado(width,height);
+            }
+
+        } catch (Exception e) {
+            System.out.println("Error al descargar la imagen: " + e.getMessage());
+        }
+    }
+
+    public static void resultado (int width, int  height){
+        BigInteger numerador = BigInteger.valueOf(width);
+        BigInteger denominador = BigInteger.valueOf(height);
+
+        BigInteger mcd = numerador.gcd(denominador);
+
+        BigInteger numeradorSimplificado = numerador.divide(mcd);
+        BigInteger denominadorSimplificado = denominador.divide(mcd);
+
+        System.out.println(" el aspect ratio de la imagen es: " + numeradorSimplificado +" : " + denominadorSimplificado);
+
+    }
+}
