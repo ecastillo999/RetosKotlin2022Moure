@@ -1,0 +1,32 @@
+public class EliminandoCaracteres {
+    public static void main(String[] args) {
+        String str1 = "hola";
+        String str2 = "hole";
+
+        eliminar( str1, str2);
+    }
+
+    public static void eliminar (String str1, String str2){
+
+        List<Character> result1 = new ArrayList<>();
+        List<Character> result2 = new ArrayList<>();
+
+
+        for (int i = 0; i < str1.length(); i++) {
+            if (!str2.contains(String.valueOf(str1.charAt(i)))) {
+                result1.add(str1.charAt(i));
+            }
+        }
+
+        for (int j = 0; j < str2.length(); j++) {
+            if (!str1.contains(String.valueOf(str2.charAt(j)))) {
+                result2.add(str2.charAt(j));
+            }
+        }
+
+        System.out.println("result1: " + result1.toString());
+        System.out.println("result2: " + result2.toString());
+    }
+        
+    }
+
