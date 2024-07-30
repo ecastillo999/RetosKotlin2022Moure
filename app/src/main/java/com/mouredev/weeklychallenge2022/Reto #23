@@ -1,0 +1,34 @@
+public class maximoDivisor_MinimoMultplo {
+    public static void main(String[] args) {
+        
+        int mcd = MaximoComunDivisor(12,15);
+
+        System.out.println("maximo comun divisor " + mcd);
+
+        int mcm = MinimoComunMultiplo(12, 15);
+
+        System.out.println("mnimo comun multiplo " + mcm);
+    }
+
+    public static int MaximoComunDivisor(int num1, int num2){
+       
+        while(num2!=0){
+            int residuo = num1 % num2;
+            num1 = num2;
+            num2 = residuo;
+        }
+
+        return num1;
+    }
+
+    public static int MinimoComunMultiplo(int num1, int num2){
+        int mcd = MaximoComunDivisor(num1, num2);
+
+        int resultado = (num1*num2);
+        resultado /= mcd;
+
+        return resultado;
+    }
+       
+    
+}
