@@ -1,0 +1,26 @@
+public class VectoresOrtogonales {
+
+    public static boolean sonOrtogonales(double[] vectorA, double[] vectorB) {
+        if (vectorA.length != vectorB.length) {
+            throw new IllegalArgumentException("Los vectores deben tener la misma dimensión.");
+        }
+
+        double productoPunto = 0.0;
+        for (int i = 0; i < vectorA.length; i++) {
+            productoPunto += vectorA[i] * vectorB[i];
+        }
+
+        return productoPunto == 0;
+    }
+
+    public static void main(String[] args) {
+        double[] vectorA = {1, 2, 3};
+        double[] vectorB = {-2, 1, 0};
+
+        if (sonOrtogonales(vectorA, vectorB)) {
+            System.out.println("Los vectores son ortogonales.");
+        } else {
+            System.out.println("Los vectores no son ortogonales.");
+        }
+    }
+}
