@@ -1,0 +1,14 @@
+public class TiempoConverter {
+    public static long tiempoAMilisegundos(int dias, int horas, int minutos, int segundos) {
+        long milisegundos = (dias * 24 * 60 * 60 * 1000L) + 
+                           (horas * 60 * 60 * 1000L) + 
+                           (minutos * 60 * 1000L) + 
+                           (segundos * 1000L);
+        return milisegundos;
+    }
+
+    public static void main(String[] args) {
+        long resultado = tiempoAMilisegundos(1, 2, 30, 45);
+        System.out.println(resultado);  
+    }
+}
